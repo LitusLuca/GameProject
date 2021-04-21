@@ -11,6 +11,8 @@ void Game::initWindow()
 	this->videoMode.height = 480;
 	this->videoMode.width = 720;
 	this->window = new sf::RenderWindow(this->videoMode, "GameProject", sf::Style::Titlebar | sf::Style::Close);
+	this->window->setFramerateLimit(144);
+	this->window->setVerticalSyncEnabled(false);
 }
 
 //constructors / destructors
@@ -26,6 +28,7 @@ Game::~Game()
 }
 
 //accessors
+
 const bool Game::running() const
 {
 	return this->window->isOpen();
@@ -36,6 +39,7 @@ const bool Game::running() const
 
 
 //functions
+
 /**
 	
 	update the dt variable with the time it takes to update the frame
@@ -101,7 +105,8 @@ void Game::run()
 	//Game Loop
 	while (this->running())
 	{
-
+		//update dt
+		this->updateDt();
 		//update
 		this->update();
 

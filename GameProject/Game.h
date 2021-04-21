@@ -1,10 +1,6 @@
 #pragma once
 
-#include <SFML\Graphics.hpp>
-#include <SFML\System.hpp>
-#include <SFML\Window.hpp>
-#include <SFML\Audio.hpp>
-#include <SFML\Network.hpp>
+#include "State.h"
 
 class Game
 {
@@ -25,7 +21,7 @@ private:
 public:
 	//constructors / destructors
 	Game();
-	~Game();
+	virtual ~Game();
 
 	//accessors
 	const bool running() const;

@@ -33,7 +33,25 @@ const bool Game::running() const
 
 
 
+
+
 //functions
+/**
+	
+	update the dt variable with the time it takes to update the frame
+
+	@return void
+	*/
+void Game::updateDt()
+{
+	this->dt = this->dtClock.restart().asSeconds();
+}
+
+/**
+	polls for sfml events and performs the according actions
+
+	@return void
+*/
 void Game::pollEvents()
 {
 	//Event Polling
@@ -56,6 +74,11 @@ void Game::pollEvents()
 	}
 }
 
+/**
+	excecute game logic
+
+	@return void
+*/
 void Game::update()
 {
 	//poll events

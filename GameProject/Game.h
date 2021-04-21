@@ -15,6 +15,9 @@ private:
 	sf::Event ev;
 	sf::VideoMode videoMode;
 
+	sf::Clock dtClock;
+	float dt;
+
 	//private functions
 	void initVariables();
 	void initWindow();
@@ -28,6 +31,7 @@ public:
 	const bool running() const;
 
 	//functions
+	void updateDt();
 	void pollEvents();
 	void update();
 	void render();

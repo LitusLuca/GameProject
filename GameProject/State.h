@@ -4,6 +4,8 @@
 #include <ctime>
 #include <iostream>
 #include <vector>
+#include <fstream>
+#include <sstream>
 
 #include <SFML\Graphics.hpp>
 #include <SFML\System.hpp>

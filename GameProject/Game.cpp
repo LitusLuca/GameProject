@@ -8,6 +8,9 @@
 void Game::initVariables()
 {
 	this->window = nullptr;
+
+	this->videoMode.height = 480;
+	this->videoMode.width = 720;
 }
 
 /**
@@ -17,12 +20,23 @@ void Game::initVariables()
 */
 void Game::initWindow()
 {
-	
-	this->videoMode.height = 480;
-	this->videoMode.width = 720;
-	this->window = new sf::RenderWindow(this->videoMode, "GameProject", sf::Style::Titlebar | sf::Style::Close);
-	this->window->setFramerateLimit(144);
-	this->window->setVerticalSyncEnabled(false);
+	std::ifstream ifs("config/window.ini");
+	std::string window_title = "Game";
+	unsigned int fps_lim = 144;
+	bool v_sync = false;
+
+	if (ifs.is_open()) {
+		std::getline(ifs, window_title);
+		ifs >> videoMode.width >> videoMode.height;
+		ifs >> fps_lim;
+		ifs >> v_sync;
+	}
+
+	ifs.close();
+
+	this->window = new sf::RenderWindow(this->videoMode, window_title, sf::Style::Titlebar | sf::Style::Close);
+	this->window->setFramerateLimit(fps_lim);
+	this->window->setVerticalSyncEnabled(v_sync);
 }
 
 //constructors / destructors

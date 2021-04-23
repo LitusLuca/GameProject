@@ -3,6 +3,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <iostream>
+#include <vector>
 
 #include <SFML\Graphics.hpp>
 #include <SFML\System.hpp>
@@ -13,6 +14,7 @@
 class State
 {
 private:
+	std::vector<sf::Texture> textures;
 
 public:
 	//constructor / destructor

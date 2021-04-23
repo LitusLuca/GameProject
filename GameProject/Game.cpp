@@ -1,13 +1,23 @@
 #include "game.h"
 
 //private functions
+
+/**
+	initiate Game variables
+*/
 void Game::initVariables()
 {
 	this->window = nullptr;
 }
 
+/**
+	initiate window with window.ini
+
+	@return void
+*/
 void Game::initWindow()
 {
+	
 	this->videoMode.height = 480;
 	this->videoMode.width = 720;
 	this->window = new sf::RenderWindow(this->videoMode, "GameProject", sf::Style::Titlebar | sf::Style::Close);
@@ -29,14 +39,15 @@ Game::~Game()
 
 //accessors
 
+/**
+	return whether game is or is not running
+
+	@return bool
+*/
 const bool Game::running() const
 {
 	return this->window->isOpen();
 }
-
-
-
-
 
 //functions
 
@@ -45,7 +56,7 @@ const bool Game::running() const
 	update the dt variable with the time it takes to update the frame
 
 	@return void
-	*/
+*/
 void Game::updateDt()
 {
 	this->dt = this->dtClock.restart().asSeconds();
@@ -89,6 +100,11 @@ void Game::update()
 	this->pollEvents();
 }
 
+/**
+	render the frame to the window using the state
+
+	@return void
+*/
 void Game::render()
 {
 	//clear old frame
@@ -100,6 +116,9 @@ void Game::render()
 	this->window->display();
 }
 
+/**
+	running the game
+*/
 void Game::run()
 {
 	//Game Loop

@@ -1,150 +1,78 @@
 #include "game.h"
 
-//private functions
 
-/**
-	initiate Game variables
-*/
-void Game::initVariables()
+Game::Game():
+	m_window("Game Project", sf::Vector2u(800, 600))
 {
-	this->window = nullptr;
+	m_player.setFillColor(sf::Color::Green);
+	m_player.setRadius(40.f);
+	m_player.setPosition(100.f, 100.f);
+	m_increment = sf::Vector2i(400, 400);
 
-	this->videoMode.height = 480;
-	this->videoMode.width = 720;
+	m_textBox.setup(5, 14, 350, sf::Vector2f(255, 0));
+	m_textBox.add("Seeded random number generator with: " + std::to_string(time(NULL)));
 }
-
-/**
-	initiate window with window.ini
-
-	@return void
-*/
-void Game::initWindow()
-{
-	std::ifstream ifs("config/window.ini");
-	std::string window_title = "Game";
-	unsigned int fps_lim = 144;
-	bool v_sync = false;
-
-	if (ifs.is_open()) {
-		std::getline(ifs, window_title);
-		ifs >> videoMode.width >> videoMode.height;
-		ifs >> fps_lim;
-		ifs >> v_sync;
-	}
-
-	ifs.close();
-
-	this->window = new sf::RenderWindow(this->videoMode, window_title, sf::Style::Titlebar | sf::Style::Close);
-	this->window->setFramerateLimit(fps_lim);
-	this->window->setVerticalSyncEnabled(v_sync);
-}
-
-//constructors / destructors
-Game::Game()
-{
-	this->initVariables();
-	this->initWindow();
-}
-
 Game::~Game()
 {
-	delete this->window;
 }
 
-//accessors
-
-/**
-	return whether game is or is not running
-
-	@return bool
-*/
-const bool Game::running() const
-{
-	return this->window->isOpen();
-}
-
-//functions
-
-/**
-	
-	update the dt variable with the time it takes to update the frame
-
-	@return void
-*/
-void Game::updateDt()
-{
-	this->dt = this->dtClock.restart().asSeconds();
-}
-
-/**
-	polls for sfml events and performs the according actions
-
-	@return void
-*/
-void Game::pollEvents()
-{
-	//Event Polling
-	while (this->window->pollEvent(this->ev))
-	{
-		switch (this->ev.type)
-		{
-		case sf::Event::Closed:
-			this->window->close();
-			break;
-		case sf::Event::KeyPressed:
-			switch (this->ev.key.code)
-			{
-			case sf::Keyboard::Escape:
-				this->window->close();
-				break;
-			}
-			break;
-		}
-	}
-}
-
-/**
-	excecute game logic
-
-	@return void
-*/
-void Game::update()
-{
-	//poll events
-	this->pollEvents();
-}
-
-/**
-	render the frame to the window using the state
-
-	@return void
-*/
-void Game::render()
-{
-	//clear old frame
-	this->window->clear(sf::Color::Cyan);
-
-	//render items
-
-	//display frame in window
-	this->window->display();
-}
-
-/**
-	running the game
-*/
 void Game::run()
 {
-	//Game Loop
-	while (this->running())
+	while (!m_window.isDone())
 	{
-		//update dt
-		this->updateDt();
-		//update
+		//this->processEvents();
 		this->update();
-
-		//render
 		this->render();
-
+		this->restartClock();
 	}
+}
+
+void Game::update()
+{
+	m_window.update();
+	this->movePlayer();
+}
+
+void Game::movePlayer()
+{
+	sf::Vector2u l_winSize = m_window.getWindwoSize();
+	float l_playerSize = 2* m_player.getRadius();
+	if ((m_player.getPosition().x > l_winSize.x - l_playerSize && m_increment.x > 0) ||
+		(m_player.getPosition().x < 0 && m_increment.x < 0))
+	{
+		m_increment.x = -m_increment.x;
+		m_textBox.add("Bounce!!!");
+	}
+		
+
+	if ((m_player.getPosition().y > l_winSize.y - l_playerSize && m_increment.y > 0) ||
+		(m_player.getPosition().y < 0 && m_increment.y < 0))
+	{
+		m_increment.y = -m_increment.y;
+		m_textBox.add("bonk!!!");
+	}
+
+	float fElapsed = m_elapsed.asSeconds();
+	m_player.setPosition(
+		m_player.getPosition().x + m_increment.x * fElapsed,
+		m_player.getPosition().y + m_increment.y * fElapsed);
+}
+
+void Game::render()
+{
+	m_window.beginDraw();
+	m_window.draw(m_player);
+
+	m_textBox.render(*m_window.getRenderWindow());
+
+	m_window.endDraw();
+}
+
+sf::Time Game::getElapsed()
+{
+	return m_elapsed;
+}
+void Game::restartClock()
+{
+	m_elapsed = m_clock.restart();
 }

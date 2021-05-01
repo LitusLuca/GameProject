@@ -1,4 +1,4 @@
-#pragma once
+/*#pragma once
 
 #include <cstdlib>
 #include <ctime>
@@ -7,11 +7,7 @@
 #include <fstream>
 #include <sstream>
 
-#include <SFML\Graphics.hpp>
-#include <SFML\System.hpp>
-#include <SFML\Window.hpp>
-#include <SFML\Audio.hpp>
-#include <SFML\Network.hpp>
+
 
 class State
 {
@@ -27,3 +23,4 @@ public:
 	virtual void render() = 0;
 };
 
+*/

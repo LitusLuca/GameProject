@@ -8,6 +8,7 @@ Game::Game():
 	m_player.setRadius(40.f);
 	m_player.setPosition(100.f, 100.f);
 	m_increment = sf::Vector2i(400, 400);
+	m_window.getEventManager()->addCallback("Move", &Game::movePlayer, this);
 
 	m_textBox.setup(5, 14, 350, sf::Vector2f(255, 0));
 	m_textBox.add("Seeded random number generator with: " + std::to_string(time(NULL)));
@@ -30,12 +31,16 @@ void Game::run()
 void Game::update()
 {
 	m_window.update();
-	this->movePlayer();
+	
 }
 
-void Game::movePlayer()
+void Game::movePlayer(EventDetails* l_details)
 {
-	sf::Vector2u l_winSize = m_window.getWindwoSize();
+	sf::Vector2i mousePos = m_window.getEventManager()->getMousePos(m_window.getRenderWindow());
+
+	m_player.setPosition(mousePos.x, mousePos.y);
+
+	/*sf::Vector2u l_winSize = m_window.getWindwoSize();
 	float l_playerSize = 2* m_player.getRadius();
 	if ((m_player.getPosition().x > l_winSize.x - l_playerSize && m_increment.x > 0) ||
 		(m_player.getPosition().x < 0 && m_increment.x < 0))
@@ -55,7 +60,7 @@ void Game::movePlayer()
 	float fElapsed = m_elapsed.asSeconds();
 	m_player.setPosition(
 		m_player.getPosition().x + m_increment.x * fElapsed,
-		m_player.getPosition().y + m_increment.y * fElapsed);
+		m_player.getPosition().y + m_increment.y * fElapsed);*/
 }
 
 void Game::render()

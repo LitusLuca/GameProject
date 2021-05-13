@@ -7,6 +7,8 @@
 #include <SFML\Audio.hpp>
 #include <SFML\Network.hpp>
 
+#include "EventManager.h"
+
 class Window
 {
 //public functions
@@ -29,9 +31,16 @@ public:
 	bool isFullScreen();
 	sf::Vector2u getWindwoSize();
 
-	void toggleFullScreen();
+	void toggleFullScreen(EventDetails* l_details);
 
 	sf::RenderWindow* getRenderWindow();
+
+	bool isFocused();
+	EventManager* getEventManager();
+
+	void close(EventDetails* l_details = nullptr);
+
+	
 
 //private functions
 private:
@@ -46,5 +55,7 @@ private:
 	std::string m_windowTitle;
 	bool m_isDone;
 	bool m_isFullScreen;
+	EventManager m_eventManager;
+	bool m_isFocused;
 };
 

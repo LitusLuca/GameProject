@@ -26,7 +26,7 @@ public:
 	void render();
 //private functions
 private:
-	void movePlayer();
+	void movePlayer(EventDetails* l_details);
 //private data
 private:
 	Window m_window;

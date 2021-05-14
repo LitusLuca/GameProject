@@ -147,14 +147,16 @@
     <ClCompile Include="EventManager.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="State.cpp" />
+    <ClCompile Include="StateManager.cpp" />
     <ClCompile Include="TextBox.cpp" />
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="EventManager.h" />
     <ClInclude Include="Game.h" />
-    <ClInclude Include="State.h" />
+    <ClInclude Include="BaseState.h" />
+    <ClInclude Include="SharedContext.h" />
+    <ClInclude Include="StateManager.h" />
     <ClInclude Include="TextBox.h" />
     <ClInclude Include="Window.h" />
   </ItemGroup>

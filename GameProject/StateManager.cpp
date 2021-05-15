@@ -1,9 +1,11 @@
 #include "StateManager.h"
 
-StateManager::StateManager(SharedContext* l_shared)
+
+StateManager::StateManager(SharedContext* l_shared):
+	m_shared(l_shared)
 {
 	this->registerState<State_Intro>(StateType::Intro);
-	this->registerState<State_MainMenu>(StateType::MainMenu);
+	this->registerState<State_Menu>(StateType::MainMenu);
 	this->registerState<State_Game>(StateType::Game);
 	this->registerState<State_Paused>(StateType::Paused);
 }
@@ -38,7 +40,7 @@ void StateManager::update(const sf::Time& l_time)
 	}
 	else
 	{
-		m_states.end()->second->update(l_time);
+		m_states.back().second->update(l_time);
 	}
 }
 
@@ -66,7 +68,7 @@ void StateManager::draw()
 	}
 	else
 	{
-		m_states.end()->second->draw();
+		m_states.back().second->draw();
 	}
 }
 
@@ -146,7 +148,7 @@ void StateManager::removeState(const StateType& l_type)
 		if (itr->first == l_type)
 		{
 			itr->second->onDestroy();
-			delete itr->second();
+			delete itr->second;
 			m_states.erase(itr);
 			return;
 		}

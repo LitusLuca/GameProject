@@ -7,6 +7,7 @@ Window::Window()
 
 Window::Window(const std::string& l_title, const sf::Vector2u& l_size) 
 {
+	
 	this->setup(l_title, l_size);
 }
 
@@ -23,8 +24,8 @@ void Window::setup(const std::string& l_title, const sf::Vector2u& l_size)
 	m_isDone = false;
 
 	m_isFocused = true;
-	m_eventManager.addCallback("Window_close", &Window::close, this);
-	m_eventManager.addCallback("Fullscreen_toggle", &Window::toggleFullScreen, this);
+	m_eventManager.addCallback(StateType(0), "Fullscreen_toggle", &Window::toggleFullScreen, this);
+	m_eventManager.addCallback(StateType(0), "Window_close", &Window::close, this);
 	
 	this->create();
 }
@@ -97,7 +98,7 @@ bool Window::isFullScreen()
 {
 	return m_isFullScreen;
 }
-sf::Vector2u Window::getWindwoSize()
+sf::Vector2u Window::getWindowSize()
 {
 	return m_windowSize;
 }

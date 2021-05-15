@@ -1,7 +1,10 @@
 #pragma once
 
 #include "SharedContext.h"
-#include "BaseState.h"
+#include "State_Intro.h"
+#include "State_Menu.h"
+#include "State_Game.h"
+#include "State_Paused.h"
 
 enum class StateType
 {

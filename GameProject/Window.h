@@ -29,7 +29,7 @@ public:
 	//getters / setters
 	bool isDone();
 	bool isFullScreen();
-	sf::Vector2u getWindwoSize();
+	sf::Vector2u getWindowSize();
 
 	void toggleFullScreen(EventDetails* l_details);
 

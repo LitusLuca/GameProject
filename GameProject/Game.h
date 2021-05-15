@@ -1,7 +1,9 @@
 #pragma once
 
 #include "Window.h"
-//#include "State.h"
+#include "EventManager.h"
+#include "StateManager.h"
+#include "SharedContext.h"
 #include "TextBox.h"
 
 class Game
@@ -24,6 +26,8 @@ public:
 	void restartClock();
 
 	void render();
+
+	void lateUpdate();
 //private functions
 private:
 	void movePlayer(EventDetails* l_details);
@@ -37,5 +41,8 @@ private:
 	sf::Time m_elapsed;
 
 	TextBox m_textBox;
+
+	StateManager m_stateManager;
+	SharedContext m_context;
 };
 

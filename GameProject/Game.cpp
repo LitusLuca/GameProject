@@ -2,16 +2,12 @@
 
 
 Game::Game():
-	m_window("Game Project", sf::Vector2u(800, 600))
+	m_window("Game Project", sf::Vector2u(1920, 1080)), m_stateManager(&m_context)
 {
-	m_player.setFillColor(sf::Color::Green);
-	m_player.setRadius(40.f);
-	m_player.setPosition(100.f, 100.f);
-	m_increment = sf::Vector2i(400, 400);
-	m_window.getEventManager()->addCallback("Move", &Game::movePlayer, this);
 
-	m_textBox.setup(5, 14, 350, sf::Vector2f(255, 0));
-	m_textBox.add("Seeded random number generator with: " + std::to_string(time(NULL)));
+	m_context.m_window = &m_window;
+	m_context.m_eventManager = m_window.getEventManager();
+	m_stateManager.switchTo(StateType::Intro);
 }
 Game::~Game()
 {
@@ -24,14 +20,14 @@ void Game::run()
 		//this->processEvents();
 		this->update();
 		this->render();
-		this->restartClock();
+		this->lateUpdate();
 	}
 }
 
 void Game::update()
 {
 	m_window.update();
-	
+	m_stateManager.update(m_elapsed);
 }
 
 void Game::movePlayer(EventDetails* l_details)
@@ -40,37 +36,22 @@ void Game::movePlayer(EventDetails* l_details)
 
 	m_player.setPosition(mousePos.x, mousePos.y);
 
-	/*sf::Vector2u l_winSize = m_window.getWindwoSize();
-	float l_playerSize = 2* m_player.getRadius();
-	if ((m_player.getPosition().x > l_winSize.x - l_playerSize && m_increment.x > 0) ||
-		(m_player.getPosition().x < 0 && m_increment.x < 0))
-	{
-		m_increment.x = -m_increment.x;
-		m_textBox.add("Bounce!!!");
-	}
-		
 
-	if ((m_player.getPosition().y > l_winSize.y - l_playerSize && m_increment.y > 0) ||
-		(m_player.getPosition().y < 0 && m_increment.y < 0))
-	{
-		m_increment.y = -m_increment.y;
-		m_textBox.add("bonk!!!");
-	}
-
-	float fElapsed = m_elapsed.asSeconds();
-	m_player.setPosition(
-		m_player.getPosition().x + m_increment.x * fElapsed,
-		m_player.getPosition().y + m_increment.y * fElapsed);*/
 }
 
 void Game::render()
 {
 	m_window.beginDraw();
-	m_window.draw(m_player);
 
-	m_textBox.render(*m_window.getRenderWindow());
+	m_stateManager.draw();
 
 	m_window.endDraw();
+}
+
+void Game::lateUpdate()
+{
+	m_stateManager.processRequests();
+	this->restartClock();
 }
 
 sf::Time Game::getElapsed()

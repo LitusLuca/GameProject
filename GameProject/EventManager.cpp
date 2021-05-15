@@ -142,15 +142,34 @@ void EventManager::update()
 		}
 		if (bind->m_events.size() == bind->c)
 		{
-			auto callItr = m_callbacks.find(bind->m_name);
-			if (callItr != m_callbacks.end())
+			auto stateCallbacks = m_callbacks.find(m_currentState);
+			auto otherCallbacks = m_callbacks.find(StateType(0));
+
+			if (stateCallbacks != m_callbacks.end())
 			{
-				callItr->second(&bind->m_details);
+				auto callItr = stateCallbacks->second.find(bind->m_name);
+				if (callItr != stateCallbacks->second.end())
+				{
+					callItr->second(&bind->m_details);
+				}
+			}
+			if (otherCallbacks != m_callbacks.end())
+			{
+				auto callItr = otherCallbacks->second.find(bind->m_name);
+				if (callItr != otherCallbacks->second.end())
+				{
+					callItr->second(&bind->m_details);
+				}
 			}
 		}
 		bind->c = 0;
 		bind->m_details.clear();
 	}
+}
+
+void EventManager::setCurrentState(StateType l_state)
+{
+	m_currentState = l_state;
 }
 
 void EventManager::loadBindings()

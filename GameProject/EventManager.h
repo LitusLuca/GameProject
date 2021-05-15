@@ -8,6 +8,7 @@
 #include <sstream>
 #include <fstream>
 
+
 #include <SFML\Graphics.hpp>
 #include <SFML\System.hpp>
 #include <SFML\Window.hpp>
@@ -84,7 +85,9 @@ struct Binding
 };
 
 using Bindings = std::unordered_map<std::string, Binding*>;
-using Callbacks = std::unordered_map<std::string, std::function<void(EventDetails*)>>;
+using CallbackContainer = std::unordered_map<std::string, std::function<void(EventDetails*)>>;
+enum class StateType;
+using Callbacks = std::unordered_map<StateType, CallbackContainer>;
 
 
 class EventManager
@@ -101,15 +104,21 @@ public:
 	void setFocus(const bool& l_focus);
 
 	template<class T>
-	bool addCallback(const std::string& l_name, void(T::* l_func)(EventDetails*), T* l_instance)
+	bool addCallback(StateType l_state,const std::string& l_name, void(T::* l_func)(EventDetails*), T* l_instance)
 	{
+		auto itr = m_callbacks.emplace(l_state, CallbackContainer()).first;
 		auto temp = std::bind(l_func, l_instance, std::placeholders::_1);
-		return m_callbacks.emplace(l_name, temp).second;
+		return itr->second.emplace(l_name, temp).second;
 	}
 
-	void removeCallback(const std::string& m_name)
+	bool removeCallback(StateType l_state,const std::string& l_name)
 	{
-		m_callbacks.erase(m_name);
+		auto itr = m_callbacks.find(l_state);
+		if (itr == m_callbacks.end()) return false;
+		auto itr2 = itr->second.find(l_name);
+		if (itr2 == itr->second.end()) return false;
+		itr->second.erase(l_name);
+		return true;
 	}
 
 	void handleEvent(sf::Event& l_event);
@@ -120,6 +129,7 @@ public:
 		return (l_wind ? sf::Mouse::getPosition(*l_wind) : sf::Mouse::getPosition());
 	}
 
+	void setCurrentState(StateType l_state);
 
 
 private:
@@ -128,6 +138,8 @@ private:
 	Bindings m_bindings;
 	Callbacks m_callbacks;
 	bool m_hasFocus;
+
+	StateType m_currentState;
 
 
 };

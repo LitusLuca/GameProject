@@ -146,8 +146,12 @@
   <ItemGroup>
     <ClCompile Include="EventManager.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="State_Game.cpp" />
+    <ClCompile Include="State_Intro.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="StateManager.cpp" />
+    <ClCompile Include="State_Menu.cpp" />
+    <ClCompile Include="State_Paused.cpp" />
     <ClCompile Include="TextBox.cpp" />
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
@@ -155,16 +159,17 @@
     <ClInclude Include="EventManager.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="BaseState.h" />
+    <ClInclude Include="State_Game.h" />
+    <ClInclude Include="State_Intro.h" />
     <ClInclude Include="SharedContext.h" />
     <ClInclude Include="StateManager.h" />
+    <ClInclude Include="State_Menu.h" />
+    <ClInclude Include="State_Paused.h" />
     <ClInclude Include="TextBox.h" />
     <ClInclude Include="Window.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="keys.cfg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Font Include="arial.ttf" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

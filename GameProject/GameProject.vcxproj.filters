@@ -36,12 +36,21 @@
     <ClCompile Include="StateManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="State_Intro.cpp">
+      <Filter>States</Filter>
+    </ClCompile>
+    <ClCompile Include="State_Menu.cpp">
+      <Filter>States</Filter>
+    </ClCompile>
+    <ClCompile Include="State_Game.cpp">
+      <Filter>States</Filter>
+    </ClCompile>
+    <ClCompile Include="State_Paused.cpp">
+      <Filter>States</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="BaseState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Window.h">
@@ -59,15 +68,25 @@
     <ClInclude Include="StateManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="State_Intro.h">
+      <Filter>States</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseState.h">
+      <Filter>States</Filter>
+    </ClInclude>
+    <ClInclude Include="State_Menu.h">
+      <Filter>States</Filter>
+    </ClInclude>
+    <ClInclude Include="State_Game.h">
+      <Filter>States</Filter>
+    </ClInclude>
+    <ClInclude Include="State_Paused.h">
+      <Filter>States</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="keys.cfg">
       <Filter>Resource Files</Filter>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Font Include="arial.ttf">
-      <Filter>Resource Files</Filter>
-    </Font>
   </ItemGroup>
 </Project>

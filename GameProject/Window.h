@@ -40,7 +40,7 @@ public:
 
 	void close(EventDetails* l_details = nullptr);
 
-	
+	sf::FloatRect getViewSpace();
 
 //private functions
 private:

@@ -3,7 +3,7 @@
 
 void State_Game::onCreate()
 {
-	m_texture.loadFromFile("texture.png");
+	m_texture.loadFromFile("recources/texture.png");
 	m_sprite.setTexture(m_texture);
 
 	m_increment = sf::Vector2f(360.f, 360.f);

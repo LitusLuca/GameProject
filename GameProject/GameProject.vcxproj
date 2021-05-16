@@ -159,6 +159,7 @@
     <ClInclude Include="EventManager.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="BaseState.h" />
+    <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="State_Game.h" />
     <ClInclude Include="State_Intro.h" />
     <ClInclude Include="SharedContext.h" />
@@ -166,10 +167,12 @@
     <ClInclude Include="State_Menu.h" />
     <ClInclude Include="State_Paused.h" />
     <ClInclude Include="TextBox.h" />
+    <ClInclude Include="TextureManager.h" />
+    <ClInclude Include="Utilities.h" />
     <ClInclude Include="Window.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="keys.cfg" />
+    <None Include="config\keys.cfg" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -108,6 +108,16 @@ void Window::close(EventDetails* l_details)
 	m_isDone = true;
 }
 
+sf::FloatRect Window::getViewSpace()
+{
+	sf::Vector2f viewCenter = m_window.getView().getCenter();
+	sf::Vector2f viewSize = m_window.getView().getSize();
+	sf::Vector2f viewSizeHalf(viewSize.x / 2.f, viewSize.y / 2.f);
+	sf::FloatRect viewSpace(viewCenter - viewSizeHalf, viewSize);
+
+	return viewSpace;
+}
+
 EventManager* Window::getEventManager()
 {
 	return &m_eventManager;

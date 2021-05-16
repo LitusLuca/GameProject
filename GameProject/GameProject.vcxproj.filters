@@ -16,24 +16,18 @@
     <Filter Include="States">
       <UniqueIdentifier>{410370e1-fa92-428a-8b0a-9de2b7ff914f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core system">
+      <UniqueIdentifier>{75295d99-9a10-4b41-aed5-f0cb9b88f000}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RecourceManagers">
+      <UniqueIdentifier>{6582e4e0-eb19-4901-87a4-f8b2d2d041e0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Game.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Window.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="TextBox.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="EventManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="StateManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="State_Intro.cpp">
@@ -48,24 +42,24 @@
     <ClCompile Include="State_Paused.cpp">
       <Filter>States</Filter>
     </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Core system</Filter>
+    </ClCompile>
+    <ClCompile Include="Window.cpp">
+      <Filter>Core system</Filter>
+    </ClCompile>
+    <ClCompile Include="StateManager.cpp">
+      <Filter>Core system</Filter>
+    </ClCompile>
+    <ClCompile Include="EventManager.cpp">
+      <Filter>Core system</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Game.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Window.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="TextBox.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="EventManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="SharedContext.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="StateManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="State_Intro.h">
@@ -83,9 +77,30 @@
     <ClInclude Include="State_Paused.h">
       <Filter>States</Filter>
     </ClInclude>
+    <ClInclude Include="Utilities.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Core system</Filter>
+    </ClInclude>
+    <ClInclude Include="Window.h">
+      <Filter>Core system</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceManager.h">
+      <Filter>RecourceManagers</Filter>
+    </ClInclude>
+    <ClInclude Include="StateManager.h">
+      <Filter>Core system</Filter>
+    </ClInclude>
+    <ClInclude Include="EventManager.h">
+      <Filter>Core system</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="keys.cfg">
+    <None Include="config\keys.cfg">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>

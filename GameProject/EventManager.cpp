@@ -1,4 +1,7 @@
+#include "pch.h"
+
 #include "EventManager.h"
+
 #define LOG(X) std::cout << X << std::endl;
 
 

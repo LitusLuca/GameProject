@@ -1,3 +1,5 @@
+#include "pch.h"
+
 #include "State_Paused.h"
 #include "StateManager.h"
 

@@ -1,6 +1,5 @@
 #pragma once
-#include <SFML\System.hpp>
-#include <SFML\Graphics.hpp>
+
 
 class StateManager;
 
@@ -53,6 +52,6 @@ protected:
 	StateManager* m_stateManager;
 	bool m_transparent;
 	bool m_transcendent;
-	sf::View m_view
+	sf::View m_view;
 };
 

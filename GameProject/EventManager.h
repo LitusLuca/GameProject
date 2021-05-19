@@ -88,6 +88,7 @@ public:
 	bool removeBinding(std::string l_name);
 
 	void setFocus(const bool& l_focus);
+	bool isFocused();
 
 	template<class T>
 	bool addCallback(StateType l_state,const std::string& l_name, void(T::* l_func)(EventDetails*), T* l_instance)

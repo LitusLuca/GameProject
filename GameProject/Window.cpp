@@ -120,6 +120,11 @@ sf::FloatRect Window::getViewSpace()
 	return viewSpace;
 }
 
+bool Window::isFocused()
+{
+	return m_eventManager.isFocused();
+}
+
 EventManager* Window::getEventManager()
 {
 	return &m_eventManager;

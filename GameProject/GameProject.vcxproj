@@ -152,6 +152,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Anim_Base.cpp" />
+    <ClCompile Include="Anim_Directional.cpp" />
     <ClCompile Include="EventManager.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="pch.cpp">
@@ -175,6 +177,9 @@
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Anim_Base.h" />
+    <ClInclude Include="Anim_Directional.h" />
+    <ClInclude Include="Direction.h" />
     <ClInclude Include="EventManager.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="BaseState.h" />

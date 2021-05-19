@@ -22,6 +22,9 @@
     <Filter Include="RecourceManagers">
       <UniqueIdentifier>{6582e4e0-eb19-4901-87a4-f8b2d2d041e0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Animations">
+      <UniqueIdentifier>{b00df6f9-3a50-4967-b1bc-bdd7e4c27eb6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -54,11 +57,17 @@
     <ClCompile Include="EventManager.cpp">
       <Filter>Core system</Filter>
     </ClCompile>
-    <ClCompile Include="SpriteSheet.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="pch.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Anim_Base.cpp">
+      <Filter>Animations</Filter>
+    </ClCompile>
+    <ClCompile Include="Anim_Directional.cpp">
+      <Filter>Animations</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteSheet.cpp">
+      <Filter>Animations</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -104,11 +113,20 @@
     <ClInclude Include="TextureManager.h">
       <Filter>RecourceManagers</Filter>
     </ClInclude>
-    <ClInclude Include="SpriteSheet.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Anim_Base.h">
+      <Filter>Animations</Filter>
+    </ClInclude>
+    <ClInclude Include="Direction.h">
+      <Filter>Animations</Filter>
+    </ClInclude>
+    <ClInclude Include="Anim_Directional.h">
+      <Filter>Animations</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteSheet.h">
+      <Filter>Animations</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

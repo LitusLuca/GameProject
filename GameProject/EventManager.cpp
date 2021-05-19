@@ -223,3 +223,8 @@ void EventManager::setFocus(const bool& l_focus)
 {
 	m_hasFocus = l_focus;
 }
+
+bool EventManager::isFocused()
+{
+	return m_hasFocus;
+}

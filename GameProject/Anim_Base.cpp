@@ -61,3 +61,8 @@ bool Anim_Base::isInAction()
 	if (m_frameActionStart == -1 || m_frameActionEnd == -1) return true;
 	return (m_frameCurrent >= m_frameActionStart && m_frameCurrent <= m_frameActionEnd);
 }
+
+void Anim_Base::setName(std::string& l_name)
+{
+	m_name = l_name
+}

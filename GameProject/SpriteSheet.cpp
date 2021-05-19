@@ -18,6 +18,91 @@ void SpriteSheet::cropSprite(const sf::IntRect& l_rect)
 	m_sprite.setTextureRect(l_rect);
 }
 
+bool SpriteSheet::loadSheet(const std::string& l_file)
+{
+	std::ifstream sheet;
+	sheet.open(Utils::GetWorkingDirectory() + l_file);
+	if (sheet.is_open())
+	{
+		releaseSheet();
+		std::string line;
+		while (std::getline(sheet, line))
+		{
+			if (line[0] == "|") continue;
+			std::stringstream keystream(line);
+			std::string type;
+			keystream >> type;
+			if (type == "Texture")
+			{
+				if (m_texture != "")
+				{
+					continue;
+				}
+				std::string texture;
+				keystream >> texture;
+				if (!m_textureManager->requireRecource(m_texture))
+				{
+					std::cerr << "! Could not set up the texture: "
+						<< m_texture << std::endl;
+					continue;
+				}
+				m_texture = texture;
+				m_sprite.setTexture(*m_textureManager->getRecource(m_texture));
+			}
+			else if (type == "Size")
+			{
+				keystream >> m_spriteSize.x >> m_spriteSize.y;
+				setSpriteSize(m_spriteSize);
+			}
+			else if (type == "Scale")
+			{
+				keystream >> m_spriteScale.x >> m_spriteScale.y;
+				m_sprite.setScale(m_spriteScale);
+			}
+			else if (type == "AnimationType")
+			{
+				keystream >> m_animType;
+			}
+			else if (type == "Animation")
+			{
+				std::string name;
+				keystream >> name;
+				if (m_animations.find(name) != m_animations.end())
+				{
+					std::cerr << "! Duplicate animation(" << name
+						<< ") in: " << l_file << std::endl;
+					continue;
+				}
+				Anim_Base* anim = nullptr;
+				if (m_animType == "Directional")
+				{
+					anim = new Anim_Directional();
+				}
+				else
+				{
+					std::cerr << "! Unknown animation type: "
+						<< m_animType << std::endl;
+					continue;
+				}
+				keystream >> *anim;
+				anim->setSpriteSheet(this);
+				anim->setName(name);
+				anim->reset();
+				m_animations.emplace(name, anim);
+
+				if (m_animationCurrent) continue;
+				m_animationCurrent = anim;
+				m_animationCurrent->play();
+			}
+		}
+		sheet.close();
+		return true;
+	}
+	std::cerr << "! Failed loading spritesheet: "
+		<< l_file << std::endl;
+	return false;
+}
+
 void SpriteSheet::releaseSheet()
 {
 	m_textureManager->releaseRecource(m_texture);

@@ -27,6 +27,8 @@ public:
 	void setSpriteSheet(SpriteSheet* l_sheet);
 	void setFrame(const Frame& l_frame);
 	bool isInAction();
+	void setName(std::string& l_name);
+
 
 protected:
 	virtual void frameStep() = 0;

@@ -3,6 +3,7 @@
 #include "TextureManager.h"
 #include "Anim_Base.h"
 #include "Direction.h"
+#include "Anim_Directional.h"
 
 using Animations = std::unordered_map<std::string, Anim_Base*>;
 

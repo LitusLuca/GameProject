@@ -9,11 +9,9 @@
 #include <algorithm>
 #include <memory>
 
-
 #define NOMINMAX
 #include <Windows.h>
 #include <Shlwapi.h>
-
 
 //data types
 #include <string>

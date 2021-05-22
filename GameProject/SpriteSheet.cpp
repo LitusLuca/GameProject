@@ -28,7 +28,7 @@ bool SpriteSheet::loadSheet(const std::string& l_file)
 		std::string line;
 		while (std::getline(sheet, line))
 		{
-			if (line[0] == "|") continue;
+			if (line[0] == (int)"|") continue;
 			std::stringstream keystream(line);
 			std::string type;
 			keystream >> type;
@@ -135,7 +135,7 @@ bool SpriteSheet::setAnimation(const std::string& l_name, const bool& l_play, co
 
 void SpriteSheet::update(const sf::Time& l_time)
 {
-	m_animationCurrent->upate(l_dt);
+	m_animationCurrent->update(l_time.asSeconds());
 }
 
 void SpriteSheet::draw(sf::RenderWindow* l_wnd)

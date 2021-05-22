@@ -8,7 +8,7 @@ class ResourceManager
 public:
 	ResourceManager(const std::string& l_pathsFile)
 	{
-		loadFiles(l_pathsFile);
+		load(l_pathsFile);
 	}
 	virtual ~ResourceManager()
 	{
@@ -18,7 +18,7 @@ public:
 	T* getRecource(const std::string& l_id)
 	{
 		auto res = find(l_id);
-		return (res ? res.first : nullptr);
+		return (res ? res->first : nullptr);
 	}
 
 	std::string getPath(const std::string& l_id)
@@ -64,7 +64,7 @@ public:
 		}
 	}
 	
-	T* load(std::string& l_path)
+	T* load(const std::string& l_path)
 	{
 		return static_cast<Derived*>(this)->load(l_path);
 	}
@@ -75,13 +75,13 @@ private:
 	std::pair<T*, unsigned int>* find(const std::string& l_id)
 	{
 		auto itr = m_recources.find(l_id);
-		return (itr != m_recources.end() ? itr->second : nullptr);
+		return (itr != m_recources.end() ? &itr->second : nullptr);
 	}
 	
 	bool unload(const std::string& l_id)
 	{
 		auto itr = m_recources.find(l_id);
-		if (itr = m_recources.end()) return false;
+		if (itr == m_recources.end()) return false;
 		delete itr->second.first;
 		m_recources.erase(itr);
 		return true;

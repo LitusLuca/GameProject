@@ -64,5 +64,10 @@ bool Anim_Base::isInAction()
 
 void Anim_Base::setName(std::string& l_name)
 {
-	m_name = l_name
+	m_name = l_name;
+}
+
+void Anim_Base::setLooping(const bool& l_looping)
+{
+	m_loop = l_looping;
 }

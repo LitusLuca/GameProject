@@ -2,6 +2,9 @@
 #include "Anim_Directional.h"
 #include "SpriteSheet.h"
 
+Anim_Directional::Anim_Directional() :
+	Anim_Base() {}
+
 void Anim_Directional::frameStep()
 {
 	if (m_frameStart < m_frameEnd) m_frameCurrent++;

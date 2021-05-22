@@ -3,6 +3,8 @@
 class Anim_Directional :
     public Anim_Base
 {
+public:
+    Anim_Directional();
 protected:
     void frameStep();
     void cropSprite();

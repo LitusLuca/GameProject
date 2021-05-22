@@ -18,7 +18,7 @@ public:
 
 	friend std::stringstream& operator>>(std::stringstream& l_stream, Anim_Base& a)
 	{
-		a.ReadIn(l_stream);
+		a.readIn(l_stream);
 		return l_stream;
 
 	}
@@ -28,12 +28,13 @@ public:
 	void setFrame(const Frame& l_frame);
 	bool isInAction();
 	void setName(std::string& l_name);
+	void setLooping(const bool& l_looping);
 
 
 protected:
 	virtual void frameStep() = 0;
 	virtual void cropSprite() = 0;
-	virtual void ReadIn(std::stringstream& l_stream) = 0;
+	virtual void readIn(std::stringstream& l_stream) = 0;
 
 	Frame m_frameCurrent;
 	Frame m_frameStart;

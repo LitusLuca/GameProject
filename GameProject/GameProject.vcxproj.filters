@@ -81,6 +81,9 @@
     <ClCompile Include="EntityBase.cpp">
       <Filter>entities</Filter>
     </ClCompile>
+    <ClCompile Include="EntityManager.cpp">
+      <Filter>entities</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TextBox.h">
@@ -144,6 +147,9 @@
       <Filter>map and world</Filter>
     </ClInclude>
     <ClInclude Include="EntityBase.h">
+      <Filter>entities</Filter>
+    </ClInclude>
+    <ClInclude Include="EntityManager.h">
       <Filter>entities</Filter>
     </ClInclude>
   </ItemGroup>

@@ -2,6 +2,7 @@
 #include "EntityBase.h"
 #include "Map.h"
 #include "SharedContext.h"
+#include "EntityManager.h"
 
 
 EntityBase::EntityBase(EntityManager* l_entityMgr) :
@@ -35,11 +36,41 @@ void EntityBase::setState(const EntityState& l_state)
 	m_state = l_state;
 }
 
+std::string EntityBase::getName() const
+{
+	return m_name;
+}
+
+EntityType EntityBase::getType() const 
+{
+	return m_type;
+}
+
+unsigned int EntityBase::getId() const 
+{
+	return m_id;
+}
+
+EntityState EntityBase::getState() const
+{
+	return m_state;
+}
+
+const sf::Vector2f& EntityBase::getPosition() const
+{
+	return m_position;
+}
+
+const sf::Vector2f& EntityBase::getSize() const
+{
+	return m_size;
+}
+
 void EntityBase::move(float l_x, float l_y)
 {
 	m_positionOld = m_position;
 	m_position += sf::Vector2f(l_x, l_y);
-	sf::Vector2u mapSize = m_entityManager->GetContext()->m_gameMap->getMapSize();
+	sf::Vector2u mapSize = m_entityManager->getContext()->m_gameMap->getMapSize();
 
 	if (m_position.x < 0) m_position.x = 0;
 	else if (m_position.x > (mapSize.x + 1) * Sheet::Tile_Size) m_position.x = (mapSize.x + 1) * Sheet::Tile_Size;

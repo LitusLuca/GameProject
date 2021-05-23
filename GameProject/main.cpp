@@ -2,6 +2,8 @@
 
 #include "Game.h"
 
+// CONSIDER: adding method descriptions
+// CONSIDER: completing the getters and setters of all functions
 
 int main() {
 	//running game

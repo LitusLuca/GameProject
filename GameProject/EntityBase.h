@@ -43,6 +43,13 @@ public:
 	void setSize(const float& l_x, const float& l_y);
 	void setState(const EntityState& l_state);
 
+	std::string getName()const;
+	EntityType getType()const;
+	unsigned int getId()const;
+	EntityState getState()const;
+	const sf::Vector2f& getPosition()const;
+	const sf::Vector2f& getSize()const;
+
 protected:
 	void updateAABB();
 	void checkCollisions();

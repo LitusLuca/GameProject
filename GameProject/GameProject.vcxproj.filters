@@ -19,11 +19,17 @@
     <Filter Include="Core system">
       <UniqueIdentifier>{75295d99-9a10-4b41-aed5-f0cb9b88f000}</UniqueIdentifier>
     </Filter>
-    <Filter Include="RecourceManagers">
+    <Filter Include="Recources">
       <UniqueIdentifier>{6582e4e0-eb19-4901-87a4-f8b2d2d041e0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Animations">
+    <Filter Include="Recources\Animations">
       <UniqueIdentifier>{b00df6f9-3a50-4967-b1bc-bdd7e4c27eb6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="map and world">
+      <UniqueIdentifier>{c66b3be7-b215-4435-a5b6-9c5fb3dd4b0f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="entities">
+      <UniqueIdentifier>{77143242-2338-4701-b749-def652f083cb}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -61,13 +67,19 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Anim_Base.cpp">
-      <Filter>Animations</Filter>
+      <Filter>Recources\Animations</Filter>
     </ClCompile>
     <ClCompile Include="Anim_Directional.cpp">
-      <Filter>Animations</Filter>
+      <Filter>Recources\Animations</Filter>
     </ClCompile>
     <ClCompile Include="SpriteSheet.cpp">
-      <Filter>Animations</Filter>
+      <Filter>Recources\Animations</Filter>
+    </ClCompile>
+    <ClCompile Include="Map.cpp">
+      <Filter>map and world</Filter>
+    </ClCompile>
+    <ClCompile Include="EntityBase.cpp">
+      <Filter>entities</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -102,7 +114,7 @@
       <Filter>Core system</Filter>
     </ClInclude>
     <ClInclude Include="ResourceManager.h">
-      <Filter>RecourceManagers</Filter>
+      <Filter>Recources</Filter>
     </ClInclude>
     <ClInclude Include="StateManager.h">
       <Filter>Core system</Filter>
@@ -111,22 +123,28 @@
       <Filter>Core system</Filter>
     </ClInclude>
     <ClInclude Include="TextureManager.h">
-      <Filter>RecourceManagers</Filter>
+      <Filter>Recources</Filter>
     </ClInclude>
     <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Anim_Base.h">
-      <Filter>Animations</Filter>
+      <Filter>Recources\Animations</Filter>
     </ClInclude>
     <ClInclude Include="Direction.h">
-      <Filter>Animations</Filter>
+      <Filter>Recources\Animations</Filter>
     </ClInclude>
     <ClInclude Include="Anim_Directional.h">
-      <Filter>Animations</Filter>
+      <Filter>Recources\Animations</Filter>
     </ClInclude>
     <ClInclude Include="SpriteSheet.h">
-      <Filter>Animations</Filter>
+      <Filter>Recources\Animations</Filter>
+    </ClInclude>
+    <ClInclude Include="Map.h">
+      <Filter>map and world</Filter>
+    </ClInclude>
+    <ClInclude Include="EntityBase.h">
+      <Filter>entities</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

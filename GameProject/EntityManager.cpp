@@ -1,7 +1,9 @@
 #include "pch.h"
 #include "EntityManager.h"
+#include "SharedContext.h"
+#include "Player.h"
 
-// TODO: add entity collision
+
 // TODO: add enemy loading
 
 EntityManager::EntityManager(SharedContext* l_context, unsigned int l_maxEntities) :
@@ -20,7 +22,7 @@ EntityManager::~EntityManager()
 int EntityManager::add(const EntityType& l_type, const std::string& l_name)
 {
 	auto itr = m_entityFactory.find(l_type);
-	if (itr = m_entityFactory.end()) return -1;
+	if (itr == m_entityFactory.end()) return -1;
 	EntityBase* entity = itr->second();
 	entity->m_id = m_idCounter;
 
@@ -31,8 +33,10 @@ int EntityManager::add(const EntityType& l_type, const std::string& l_name)
 		auto itr = m_enemyTypes.find(l_name);
 		if (itr != m_enemyTypes.end())
 		{
+			/*
 			Enemy* enemy = (Enemy*)entity;
 			enemy->load(itr->second);
+			*/
 		}
 	}
 	++m_idCounter;
@@ -110,4 +114,9 @@ void EntityManager::processRemovals()
 		}
 		m_entitiesToRemove.pop_back();
 	}
+}
+
+void EntityManager::entityCollisionCheck()
+{
+	// TODO: add entity collision
 }

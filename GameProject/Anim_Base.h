@@ -30,6 +30,11 @@ public:
 	void setName(std::string& l_name);
 	void setLooping(const bool& l_looping);
 
+	SpriteSheet* getSpriteSheet()const;
+	Frame getFrame()const;
+	std::string getName()const;
+	bool getLooping()const;
+	bool isPlaying() const;
 
 protected:
 	virtual void frameStep() = 0;

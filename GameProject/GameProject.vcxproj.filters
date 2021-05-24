@@ -57,9 +57,6 @@
     <ClCompile Include="Window.cpp">
       <Filter>Core system</Filter>
     </ClCompile>
-    <ClCompile Include="StateManager.cpp">
-      <Filter>Core system</Filter>
-    </ClCompile>
     <ClCompile Include="EventManager.cpp">
       <Filter>Core system</Filter>
     </ClCompile>
@@ -82,6 +79,15 @@
       <Filter>entities</Filter>
     </ClCompile>
     <ClCompile Include="EntityManager.cpp">
+      <Filter>entities</Filter>
+    </ClCompile>
+    <ClCompile Include="StateManager.cpp">
+      <Filter>States</Filter>
+    </ClCompile>
+    <ClCompile Include="Character.cpp">
+      <Filter>entities</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
       <Filter>entities</Filter>
     </ClCompile>
   </ItemGroup>
@@ -119,9 +125,6 @@
     <ClInclude Include="ResourceManager.h">
       <Filter>Recources</Filter>
     </ClInclude>
-    <ClInclude Include="StateManager.h">
-      <Filter>Core system</Filter>
-    </ClInclude>
     <ClInclude Include="EventManager.h">
       <Filter>Core system</Filter>
     </ClInclude>
@@ -150,6 +153,15 @@
       <Filter>entities</Filter>
     </ClInclude>
     <ClInclude Include="EntityManager.h">
+      <Filter>entities</Filter>
+    </ClInclude>
+    <ClInclude Include="StateManager.h">
+      <Filter>States</Filter>
+    </ClInclude>
+    <ClInclude Include="Character.h">
+      <Filter>entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
       <Filter>entities</Filter>
     </ClInclude>
   </ItemGroup>

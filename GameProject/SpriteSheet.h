@@ -30,7 +30,7 @@ public:
 	Anim_Base* getCurrentAnim();
 	bool setAnimation(const std::string& l_name, const bool& l_play = false, const bool& l_loop = false);
 
-	void update(const sf::Time& l_time);
+	void update(float l_dT);
 	void draw(sf::RenderWindow* l_wnd);
 
 	

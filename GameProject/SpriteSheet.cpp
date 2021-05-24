@@ -133,9 +133,9 @@ bool SpriteSheet::setAnimation(const std::string& l_name, const bool& l_play, co
 	return true;
 }
 
-void SpriteSheet::update(const sf::Time& l_time)
+void SpriteSheet::update(float l_dT)
 {
-	m_animationCurrent->update(l_time.asSeconds());
+	m_animationCurrent->update(l_dT);
 }
 
 void SpriteSheet::draw(sf::RenderWindow* l_wnd)

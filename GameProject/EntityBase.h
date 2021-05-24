@@ -1,5 +1,5 @@
 #pragma once
-#include "Map.h"
+
 
 enum class EntityType {
 	Base, Player, Enemy
@@ -8,6 +8,7 @@ enum class EntityState {
 	Idle, Walking, Jumping, Dying
 };
 
+struct TileInfo;
 struct CollisionElement
 {
 	CollisionElement(float l_area, TileInfo* l_info, const sf::FloatRect& l_bounds) :

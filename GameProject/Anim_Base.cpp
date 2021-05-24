@@ -71,3 +71,28 @@ void Anim_Base::setLooping(const bool& l_looping)
 {
 	m_loop = l_looping;
 }
+
+SpriteSheet* Anim_Base::getSpriteSheet() const
+{
+	return m_spriteSheet;
+}
+
+Frame Anim_Base::getFrame() const
+{
+	return m_frameCurrent;
+}
+
+std::string Anim_Base::getName() const
+{
+	return m_name;
+}
+
+bool Anim_Base::getLooping() const
+{
+	return m_loop;
+}
+
+bool Anim_Base::isPlaying() const
+{
+	return m_playing;
+}

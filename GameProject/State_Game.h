@@ -1,6 +1,7 @@
 #pragma once
 #include "BaseState.h"
 #include "EventManager.h"
+#include "Map.h"
 
 class State_Game :
     public BaseState
@@ -25,5 +26,7 @@ private:
 	sf::Texture m_texture;
 	sf::Sprite m_sprite;
 	sf::Vector2f m_increment;
+
+	Map* m_gameMap;
 };
 

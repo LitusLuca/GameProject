@@ -145,6 +145,7 @@ void EntityBase::update(float l_dT)
 	m_collisionOnY = false;
 	checkCollisions();
 	resolveCollisions();
+	return;
 }
 
 void EntityBase::updateAABB()

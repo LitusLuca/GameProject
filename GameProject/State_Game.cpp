@@ -13,6 +13,15 @@ void State_Game::onCreate()
 	EventManager* evMgr = m_stateManager->getContext()->m_eventManager;
 	evMgr->addCallback(StateType::Game, "Key_Escape", &State_Game::mainMenu, this);
 	evMgr->addCallback(StateType::Game, "Key_P", &State_Game::pause, this);
+
+	sf::Vector2u size = m_stateManager->getContext()->m_window->getWindowSize();
+	m_view.setSize(size.x, size.y);
+	m_view.setCenter(size.x / 2, size.y / 2);
+	m_view.zoom(0.6f);
+	m_stateManager->getContext()->m_window->getRenderWindow()->setView(m_view);
+
+	m_gameMap = new Map(m_stateManager->getContext(), this);
+	m_gameMap->loadMap("media/Maps/map1.map");
 }
 
 void State_Game::onDestroy()
@@ -20,6 +29,10 @@ void State_Game::onDestroy()
 	EventManager* evMgr = m_stateManager->getContext()->m_eventManager;
 	evMgr->removeCallback(StateType::Game,"Key_Escape");
 	evMgr->removeCallback(StateType::Game, "Key_P");
+	delete m_gameMap;
+	m_gameMap = nullptr;
+	delete m_gameMap;
+	m_gameMap = nullptr;
 }
 
 void State_Game::activate()
@@ -32,19 +45,33 @@ void State_Game::deactivate()
 
 void State_Game::update(const sf::Time& l_time)
 {
-	sf::Vector2u winSize = m_stateManager->getContext()->m_window->getWindowSize();
-	sf::Vector2u textureSize = m_texture.getSize();
-
-	if (m_sprite.getPosition().x < 0 && m_increment.x < 0 || (m_sprite.getPosition().x + textureSize.x > winSize.x && m_increment.x > 0))
+	SharedContext* context = m_stateManager->getContext();
+	EntityBase* player = context->m_entityManager->find("Player");
+	if (!player)
 	{
-		m_increment.x = -m_increment.x;
+		std::cout << "Respawning Player\n";
+		context->m_entityManager->add(EntityType::Player, "Player");
+		player = context->m_entityManager->find("Player");
+		player->setPosition(m_gameMap->getPlayerStart());
 	}
-	if (m_sprite.getPosition().y < 0 && m_increment.y < 0 || (m_sprite.getPosition().y + textureSize.y > winSize.y && m_increment.y > 0))
+	else
 	{
-		m_increment.y = -m_increment.y;
+		m_view.setCenter(player->getPosition());
+		context->m_window->getRenderWindow()->setView(m_view);
 	}
-
-	m_sprite.setPosition(m_sprite.getPosition().x + m_increment.x * l_time.asSeconds(), m_sprite.getPosition().y + m_increment.y * l_time.asSeconds());
+	sf::FloatRect viewSpace = context->m_window->getViewSpace();
+	if (viewSpace.left < 0)
+	{
+		m_view.setCenter(viewSpace.width / 2, m_view.getCenter().y);
+		context->m_window->getRenderWindow()->setView(m_view);
+	}
+	else if (viewSpace.left + viewSpace.width > (m_gameMap->getMapSize().x + 1) * Sheet::Tile_Size)
+	{
+		m_view.setCenter((m_gameMap->getMapSize().x + 1) * Sheet::Tile_Size - (viewSpace.width / 2), m_view.getCenter().y);
+		context->m_window->getRenderWindow()->setView(m_view);
+	}
+	m_gameMap->update(l_time.asSeconds());
+	m_stateManager->getContext()->m_entityManager->update(l_time.asSeconds());
 }
 
 void State_Game::draw()

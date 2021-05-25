@@ -8,7 +8,7 @@ class ResourceManager
 public:
 	ResourceManager(const std::string& l_pathsFile)
 	{
-		load(l_pathsFile);
+		loadPaths(l_pathsFile);
 	}
 	virtual ~ResourceManager()
 	{

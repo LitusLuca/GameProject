@@ -44,5 +44,7 @@ private:
 
 	StateManager m_stateManager;
 	SharedContext m_context;
+	EntityManager m_entityManager;
+	TextureManager m_textureManager;
 };
 

@@ -98,5 +98,8 @@
     <ClInclude Include="State_Paused.h">
       <Filter>StateManager\States</Filter>
     </ClInclude>
+    <ClInclude Include="Utilities.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

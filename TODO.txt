@@ -1,0 +1,14 @@
+GameProject:
+	0 RecourceManager:
+		# Managing all kinds of recources:
+		# registering and deleting recourses
+		# keeping up when a recource is needed
+		0 TextureManager:
+			# property's specific for handeling textures
+
+	0 SpriteSheet:
+		0 Animations
+	0 Entity:
+		0 Character
+		0 Player
+	

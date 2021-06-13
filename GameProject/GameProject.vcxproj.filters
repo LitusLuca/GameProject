@@ -63,6 +63,9 @@
     <ClCompile Include="State_Paused.cpp">
       <Filter>StateManager\States</Filter>
     </ClCompile>
+    <ClCompile Include="pch.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SharedContext.h">
@@ -99,6 +102,9 @@
       <Filter>StateManager\States</Filter>
     </ClInclude>
     <ClInclude Include="Utilities.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -43,6 +43,7 @@ private:
 	TextBox m_textBox;
 
 	StateManager m_stateManager;
+	TextureManager m_textureManager;
 	SharedContext m_context;
 };
 

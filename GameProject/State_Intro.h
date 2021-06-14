@@ -20,7 +20,7 @@ public:
     void continueIntro(EventDetails* l_details);
 
 private:
-	sf::Texture m_introTexture;
+	std::string m_introTexture;
 	sf::Sprite m_introSprite;
 	sf::Text m_text;
 	sf::Font m_font;

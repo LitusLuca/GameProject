@@ -1,10 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
     <Filter Include="Header Files">
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
@@ -22,14 +18,14 @@
     <Filter Include="Events">
       <UniqueIdentifier>{4580e53b-e6df-4fa4-a846-f59a0431383a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Recources">
-      <UniqueIdentifier>{dc8fb5bb-5286-4c98-a55e-81bf82210a83}</UniqueIdentifier>
-    </Filter>
     <Filter Include="StateManager">
       <UniqueIdentifier>{410370e1-fa92-428a-8b0a-9de2b7ff914f}</UniqueIdentifier>
     </Filter>
     <Filter Include="StateManager\States">
       <UniqueIdentifier>{f88b8dde-8c82-4ab4-bc39-890739d820a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ResourceManager">
+      <UniqueIdentifier>{dc8fb5bb-5286-4c98-a55e-81bf82210a83}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -64,7 +60,7 @@
       <Filter>StateManager\States</Filter>
     </ClCompile>
     <ClCompile Include="pch.cpp">
-      <Filter>Resource Files</Filter>
+      <Filter>Header Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -106,6 +102,12 @@
     </ClInclude>
     <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceManager.h">
+      <Filter>ResourceManager</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureManager.h">
+      <Filter>ResourceManager</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

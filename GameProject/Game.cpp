@@ -8,6 +8,7 @@ Game::Game():
 
 	m_context.m_window = &m_window;
 	m_context.m_eventManager = m_window.getEventManager();
+	m_context.m_textureManager = &m_textureManager;
 	m_stateManager.switchTo(StateType::Intro);
 }
 Game::~Game()

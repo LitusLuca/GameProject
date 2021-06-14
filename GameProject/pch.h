@@ -9,6 +9,7 @@
 #include <algorithm>
 #include <memory>
 
+//windows
 #define NOMINMAX
 #include <Windows.h>
 #include <Shlwapi.h>

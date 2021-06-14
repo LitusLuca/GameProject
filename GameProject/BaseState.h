@@ -43,9 +43,14 @@ public:
 		return m_stateManager;
 	}
 
+	sf::View& getView()
+	{
+		return m_view;
+	}
 protected:
 	StateManager* m_stateManager;
 	bool m_transparent;
 	bool m_transcendent;
+	sf::View m_view;
 };
 

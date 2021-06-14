@@ -6,7 +6,7 @@ GameProject:
 		1 TextureManager:
 			# property's specific for handeling textures
 
-	0 Adding the view to stateMgr
+	1 Adding the views to stateMgr
 
 	0 SpriteSheet:
 		0 Animations

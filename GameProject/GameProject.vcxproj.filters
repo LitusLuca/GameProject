@@ -27,6 +27,12 @@
     <Filter Include="ResourceManager">
       <UniqueIdentifier>{dc8fb5bb-5286-4c98-a55e-81bf82210a83}</UniqueIdentifier>
     </Filter>
+    <Filter Include="SpriteSheet">
+      <UniqueIdentifier>{a5d7b37b-7a2e-4490-83c9-c6a9e0432e1f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SpriteSheet\Animations">
+      <UniqueIdentifier>{e12b9367-d86c-4f7b-8599-0df1e16f8537}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TextBox.cpp">
@@ -61,6 +67,15 @@
     </ClCompile>
     <ClCompile Include="pch.cpp">
       <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteSheet.cpp">
+      <Filter>SpriteSheet</Filter>
+    </ClCompile>
+    <ClCompile Include="Anim_Base.cpp">
+      <Filter>SpriteSheet\Animations</Filter>
+    </ClCompile>
+    <ClCompile Include="Anim_Directional.cpp">
+      <Filter>SpriteSheet\Animations</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -108,6 +123,18 @@
     </ClInclude>
     <ClInclude Include="TextureManager.h">
       <Filter>ResourceManager</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteSheet.h">
+      <Filter>SpriteSheet</Filter>
+    </ClInclude>
+    <ClInclude Include="Anim_Base.h">
+      <Filter>SpriteSheet\Animations</Filter>
+    </ClInclude>
+    <ClInclude Include="Direction.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Anim_Directional.h">
+      <Filter>SpriteSheet\Animations</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

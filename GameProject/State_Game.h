@@ -1,6 +1,7 @@
 #pragma once
 #include "BaseState.h"
 #include "EventManager.h"
+#include "SpriteSheet.h"
 
 class State_Game :
     public BaseState
@@ -22,8 +23,7 @@ public:
 	void pause(EventDetails* l_details);
 
 private:
-	sf::Texture m_texture;
-	sf::Sprite m_sprite;
 	sf::Vector2f m_increment;
+	SpriteSheet* m_pepega;
 };
 

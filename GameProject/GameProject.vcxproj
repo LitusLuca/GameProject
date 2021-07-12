@@ -154,6 +154,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Anim_Base.cpp" />
+    <ClCompile Include="Anim_Directional.cpp" />
     <ClCompile Include="EventManager.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="pch.cpp">
@@ -166,6 +168,7 @@
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">pch.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">pch.h</PrecompiledHeaderFile>
     </ClCompile>
+    <ClCompile Include="SpriteSheet.cpp" />
     <ClCompile Include="State_Game.cpp" />
     <ClCompile Include="State_Intro.cpp" />
     <ClCompile Include="main.cpp" />
@@ -176,11 +179,15 @@
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Anim_Base.h" />
+    <ClInclude Include="Anim_Directional.h" />
+    <ClInclude Include="Direction.h" />
     <ClInclude Include="EventManager.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="BaseState.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="ResourceManager.h" />
+    <ClInclude Include="SpriteSheet.h" />
     <ClInclude Include="State_Game.h" />
     <ClInclude Include="State_Intro.h" />
     <ClInclude Include="SharedContext.h" />

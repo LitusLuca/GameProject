@@ -141,7 +141,7 @@ void StateManager::createState(const StateType& l_type)
 	auto newState = m_stateFactory.find(l_type);
 	if (newState == m_stateFactory.end()) return;
 	BaseState* state = newState->second();
-	state->m_view = m_shared->m_window->getRenderWindow()->getDefaultView;
+	state->m_view = m_shared->m_window->getRenderWindow()->getDefaultView();
 
 	m_states.emplace_back(l_type, state);
 	state->onCreate();

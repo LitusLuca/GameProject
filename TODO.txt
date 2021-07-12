@@ -1,15 +1,29 @@
 GameProject:
-	0 RecourceManager:
+	1 RecourceManager:
 		# Managing all kinds of recources:
 		# registering and deleting recourses
 		# keeping up when a recource is needed
+		# retrieving recources and deleting them
 		1 TextureManager:
 			# property's specific for handeling textures
 
 	1 Adding the views to stateMgr
 
-	0 SpriteSheet:
-		0 Animations
+	1 SpriteSheet:
+		# class managing the animations of a spritesheet
+		# loading and releasing the sheet 
+		# updating and drawing the sprite
+		# holding the texture, sprite, -size and -scale
+		# holding a container all animations in the sheet
+		# holding the current animation and its direction
+
+
+		1 Animations:
+			#
+			1 Base_Anim
+			0 Anim_Static
+			1 Anim_Dir
+
 	0 Entity:
 		0 Character
 		0 Player

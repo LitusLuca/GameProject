@@ -56,7 +56,7 @@ bool SpriteSheet::loadSheet(const std::string& l_file)
 		std::string line;
 		while (std::getline(sheet, line))
 		{
-			if (line[0] == (char)"|")
+			if (line[0] == '|')
 			{
 				continue;
 			}

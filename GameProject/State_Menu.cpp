@@ -4,7 +4,7 @@
 
 void State_Menu::onCreate()
 {
-	m_font.loadFromFile("arial.ttf");
+	m_font.loadFromFile(Utils::GetWorkingDirectory() + "media/Fonts/arial.ttf");
 	m_text.setFont(m_font);
 	m_text.setString("MAIN MENU:");
 	m_text.setCharacterSize(28);

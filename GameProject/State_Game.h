@@ -2,6 +2,7 @@
 #include "BaseState.h"
 #include "EventManager.h"
 #include "SpriteSheet.h"
+#include "Map.h"
 
 class State_Game :
     public BaseState
@@ -25,5 +26,6 @@ public:
 private:
 	sf::Vector2f m_increment;
 	SpriteSheet* m_pepega;
+	Map* m_gameMap;
 };
 

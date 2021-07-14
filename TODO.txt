@@ -24,7 +24,16 @@ GameProject:
 			0 Anim_Static
 			1 Anim_Dir
 
+	0 GameMap:
+		# A gamemap containig tiles reffering to a specific tileInfo
+		0 Map Class
+		1 TileInfo / Tile structures
+
 	0 Entity:
-		0 Character
-		0 Player
+		# The base class for all entity types
+		0 Character:
+			#The base class for all entities that are a character
+			0 Player
+
+	0 Entity Manager:
 	

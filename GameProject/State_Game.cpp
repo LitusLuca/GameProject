@@ -16,6 +16,8 @@ void State_Game::onCreate()
 	EventManager* evMgr = m_stateManager->getContext()->m_eventManager;
 	evMgr->addCallback(StateType::Game, "Key_Escape", &State_Game::mainMenu, this);
 	evMgr->addCallback(StateType::Game, "Key_P", &State_Game::pause, this);
+	m_gameMap = new Map(m_stateManager->getContext(), this);
+	m_gameMap->loadMap("media/Maps/map1.map");
 }
 
 void State_Game::onDestroy()
@@ -25,6 +27,8 @@ void State_Game::onDestroy()
 	evMgr->removeCallback(StateType::Game, "Key_P");
 	delete m_pepega;
 	m_pepega = nullptr;
+	delete m_gameMap;
+	m_gameMap = nullptr;
 }
 
 void State_Game::activate()
@@ -53,10 +57,12 @@ void State_Game::update(const sf::Time& l_time)
 		m_increment.y = -m_increment.y;
 	}
 	m_pepega->setSpritePosition(sf::Vector2f(pepePos.x + m_increment.x * l_time.asSeconds(), pepePos.y + m_increment.y * l_time.asSeconds()));
+	m_gameMap->update(l_time.asSeconds());
 }
 
 void State_Game::draw()
 {
+	m_gameMap->draw();
 	m_pepega->draw(m_stateManager->getContext()->m_window->getRenderWindow());
 }
 

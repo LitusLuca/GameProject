@@ -33,6 +33,12 @@
     <Filter Include="SpriteSheet\Animations">
       <UniqueIdentifier>{e12b9367-d86c-4f7b-8599-0df1e16f8537}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Map">
+      <UniqueIdentifier>{447ed151-f291-4c1f-88a6-8d5bfce4fd62}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entities">
+      <UniqueIdentifier>{b5aed024-9f23-41d4-9488-96dda293c5f1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TextBox.cpp">
@@ -76,6 +82,12 @@
     </ClCompile>
     <ClCompile Include="Anim_Directional.cpp">
       <Filter>SpriteSheet\Animations</Filter>
+    </ClCompile>
+    <ClCompile Include="Map.cpp">
+      <Filter>Map</Filter>
+    </ClCompile>
+    <ClCompile Include="EntityBase.cpp">
+      <Filter>Entities</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -135,6 +147,12 @@
     </ClInclude>
     <ClInclude Include="Anim_Directional.h">
       <Filter>SpriteSheet\Animations</Filter>
+    </ClInclude>
+    <ClInclude Include="Map.h">
+      <Filter>Map</Filter>
+    </ClInclude>
+    <ClInclude Include="EntityBase.h">
+      <Filter>Entities</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

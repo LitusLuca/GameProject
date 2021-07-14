@@ -32,6 +32,8 @@ public:
 	bool isFocused();
 	EventManager* getEventManager();
 
+	sf::FloatRect getViewSpace();
+
 	void close(EventDetails* l_details = nullptr);
 
 	

@@ -113,3 +113,12 @@ EventManager* Window::getEventManager()
 {
 	return &m_eventManager;
 }
+
+sf::FloatRect Window::getViewSpace()
+{
+	sf::Vector2f viewCenter(m_window.getView().getCenter());
+	sf::Vector2f viewSize(m_window.getView().getSize());
+	sf::Vector2f viewHalf(viewSize.x / 2, viewSize.y / 2);
+	sf::FloatRect viewSpace(viewCenter - viewHalf, viewSize);
+	return viewSpace;
+}

@@ -89,6 +89,12 @@
     <ClCompile Include="EntityBase.cpp">
       <Filter>Entities</Filter>
     </ClCompile>
+    <ClCompile Include="EntityManager.cpp">
+      <Filter>Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="Character.cpp">
+      <Filter>Entities</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SharedContext.h">
@@ -152,6 +158,12 @@
       <Filter>Map</Filter>
     </ClInclude>
     <ClInclude Include="EntityBase.h">
+      <Filter>Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="EntityManager.h">
+      <Filter>Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Character.h">
       <Filter>Entities</Filter>
     </ClInclude>
   </ItemGroup>

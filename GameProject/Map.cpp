@@ -222,6 +222,7 @@ void Map::loadMap(const std::string& l_path)
 			keystream >> m_nextMap;
 		}
 	}
+	file.close();
 }
 
 void Map::loadTiles(const std::string& l_path)

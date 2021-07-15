@@ -89,9 +89,14 @@ void Character::load(const std::string& l_path)
 		else if (type == "MaxVelocity")
 			keystream >> m_maxVelocity.x >> m_maxVelocity.y;
 		else
-			std::cout << "! Unknown specifier: " << m_type << "\n";
+			std::cout << "! Unknown specifier: " << type << "\n";
 	}
 	file.close();
+}
+
+void Character::updateAttackAABB()
+{
+	//TODO: Character::updateAttackAABB()
 }
 
 void Character::animate()
@@ -112,7 +117,7 @@ void Character::update(float l_dT)
 	{
 		updateAttackAABB();
 	}
-	if (!getState() != EntityState::Dying && getState() != EntityState::Attacking)
+	if (getState() != EntityState::Dying && getState() != EntityState::Attacking)
 	{
 		if (abs(m_velocity.y) >= 0.001f)
 			setState(EntityState::Jumping);

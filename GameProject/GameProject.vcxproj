@@ -172,6 +172,7 @@
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">pch.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">pch.h</PrecompiledHeaderFile>
     </ClCompile>
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="SpriteSheet.cpp" />
     <ClCompile Include="State_Game.cpp" />
     <ClCompile Include="State_Intro.cpp" />
@@ -194,6 +195,7 @@
     <ClInclude Include="BaseState.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="SpriteSheet.h" />
     <ClInclude Include="State_Game.h" />

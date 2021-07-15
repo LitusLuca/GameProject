@@ -16,7 +16,7 @@ public:
     void attack();
     void getHurt();
     void load(const std::string& l_path);
-    virtual void OnEntityCollision(EntityBase* l_collider, bool l_attack) = 0;
+    virtual void onEntityCollision(EntityBase* l_collider, bool l_attack) = 0;
     virtual void update(float l_dT);
     void draw(sf::RenderWindow* l_renderWnd);
 

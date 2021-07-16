@@ -29,6 +29,7 @@ void SpriteSheet::setSpritePosition(const sf::Vector2f& l_pos)
 void SpriteSheet::setDirection(const Direction& l_dir)
 {
 	m_direction = l_dir;
+	m_animationCurrent->cropSprite();
 }
 
 sf::Vector2i SpriteSheet::getSpriteSize() const

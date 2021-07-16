@@ -1,7 +1,6 @@
 #pragma once
 #include "BaseState.h"
 #include "EventManager.h"
-#include "SpriteSheet.h"
 #include "Map.h"
 
 class State_Game :

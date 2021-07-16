@@ -1,8 +1,7 @@
 #pragma once
 
-#include "Anim_Base.h"
+#include "Anim_Directional.h"
 #include "TextureManager.h"
-#include "Direction.h"
 
 using Animations = std::unordered_map<std::string, Anim_Base*>;
 

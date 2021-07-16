@@ -1,6 +1,5 @@
 #pragma once
 #include "EntityBase.h"
-#include "Direction.h"
 #include "SpriteSheet.h"
 
 class Character :

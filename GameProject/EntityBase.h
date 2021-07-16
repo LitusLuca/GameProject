@@ -1,5 +1,4 @@
 #pragma once
-#include "Map.h"
 
 enum class EntityType
 {
@@ -16,6 +15,8 @@ enum class EntityState
 	Attacking,
 	Dying
 };
+
+struct TileInfo;
 
 struct CollisionElement
 {

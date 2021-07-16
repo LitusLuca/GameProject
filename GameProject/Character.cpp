@@ -69,6 +69,7 @@ void Character::load(const std::string& l_path)
 			std::string path;
 			keystream >> path;
 			m_spriteSheet.loadSheet("media/SpriteSheets/" + path);
+			m_spriteSheet.getCurrentAnimation()->setLooping(true);
 		}
 		else if (type == "Hitpoints")
 			keystream >> m_hitpoints;
@@ -136,10 +137,16 @@ void Character::update(float l_dT)
 		//TODO: reset character when died 
 	animate();
 	m_spriteSheet.update(l_dT);
-	m_spriteSheet.setSpritePosition(m_position);
+	m_spriteSheet.setSpritePosition(sf::Vector2f(m_position.x, m_position.y - m_spriteSheet.getSpriteSize().y / 2));
 }
 
 void Character::draw(sf::RenderWindow* l_renderWnd)
 {
 	m_spriteSheet.draw(l_renderWnd);
+	sf::RectangleShape aabb_draw(sf::Vector2f(m_AABB.width, m_AABB.height));
+	/*
+	aabb_draw.setPosition(m_AABB.left, m_AABB.top);
+	aabb_draw.setFillColor(sf::Color::Cyan);
+	l_renderWnd->draw(aabb_draw);
+	*/
 }

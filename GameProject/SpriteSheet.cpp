@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "SpriteSheet.h"
-#include "Anim_Directional.h"
+
 
 SpriteSheet::SpriteSheet(TextureManager* l_textMgr) :
 	m_textureMgr(l_textMgr), m_animationCurrent(nullptr), m_spriteScale(1.f, 1.f), m_direction(Direction::Right) {}

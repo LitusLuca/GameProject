@@ -1,4 +1,6 @@
 #include "pch.h"
+#include "SharedContext.h"
+#include "Map.h"
 #include "EntityBase.h"
 #include "EntityManager.h"
 

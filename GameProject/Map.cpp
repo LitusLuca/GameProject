@@ -118,7 +118,7 @@ void Map::purgeMap()
 		delete itr.second;
 	}
 	m_tileMap.clear();
-	//TODO: purge Entity: m_context->m_entityManager->purge();
+	m_context->m_entityManager->purge();
 	if (m_backgroundTexture == "") return;
 	m_context->m_textureManager->releaseResource(m_backgroundTexture);
 	m_backgroundTexture = "";
@@ -143,7 +143,9 @@ void Map::loadMap(const std::string& l_path)
 		std::cerr << "! Failed loading map: " << l_path << "\n";
 		return;
 	}
+	EntityManager* entityMgr = m_context->m_entityManager;
 	std::string line;
+	int playerId = -1;
 	while (std::getline(file, line))
 	{
 		if (line[0] == '|') continue;
@@ -220,6 +222,16 @@ void Map::loadMap(const std::string& l_path)
 		else if (type == "NEXTMAP")
 		{
 			keystream >> m_nextMap;
+		}
+		else if (type == "PLAYER")
+		{
+			if (playerId != -1) continue;
+			playerId = entityMgr->add(EntityType::Player);
+			if (playerId < 0) continue;
+			float playerX = 0; float playerY = 0;
+			keystream >> playerX >> playerY;
+			entityMgr->find(playerId)->setPosition(playerX, playerY);
+			m_playerStart = sf::Vector2f(playerX, playerY);
 		}
 	}
 	file.close();

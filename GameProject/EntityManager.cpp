@@ -1,12 +1,13 @@
 #include "pch.h"
 #include "EntityManager.h"
+#include "SharedContext.h"
 
 EntityManager::EntityManager(SharedContext* l_context, unsigned int l_maxEntities)
 	: m_context(l_context), m_maxEntities(l_maxEntities), m_idCounter(0)
 {
 	//loadEnemyTypes("EnemyList.list");
 
-	//registerEntity<Player>(EntityType::Player);
+	registerEntity<Player>(EntityType::Player);
 
 	//Consider: adding enemies
 }

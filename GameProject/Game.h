@@ -3,7 +3,8 @@
 #include "Window.h"
 #include "EventManager.h"
 #include "StateManager.h"
-#include "SharedContext.h"
+#include "EntityManager.h"
+#include "TextureManager.h"
 #include "TextBox.h"
 
 class Game
@@ -33,6 +34,7 @@ private:
 	void movePlayer(EventDetails* l_details);
 //private data
 private:
+	SharedContext m_context;
 	Window m_window;
 	sf::CircleShape m_player;
 	sf::Vector2i m_increment;
@@ -44,7 +46,7 @@ private:
 
 	
 	TextureManager m_textureManager;
+	EntityManager m_entityManager;
 	StateManager m_stateManager;
-	SharedContext m_context;
 };
 

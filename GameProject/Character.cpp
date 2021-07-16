@@ -109,6 +109,8 @@ void Character::animate()
 		m_spriteSheet.setAnimation("Jump", true, false);
 	else if (state == EntityState::Idle && m_spriteSheet.getCurrentAnimation()->getName() != "Idle")
 		m_spriteSheet.setAnimation("Idle", true, true);
+	else if (state == EntityState::Dying && m_spriteSheet.getCurrentAnimation()->getName() != "Death")
+		m_spriteSheet.setAnimation("Death", true, false);
 }
 
 void Character::update(float l_dT)
@@ -133,8 +135,13 @@ void Character::update(float l_dT)
 			setState(EntityState::Idle);
 	}
 	else if (getState() == EntityState::Dying)
+	{
 		std::cout << "Reset char" << "\n";
 		//TODO: reset character when died 
+		if (!m_spriteSheet.getCurrentAnimation()->isPlaying())
+			m_entityManager->remove(m_id);
+	}
+		
 	animate();
 	m_spriteSheet.update(l_dT);
 	m_spriteSheet.setSpritePosition(sf::Vector2f(m_position.x, m_position.y - m_spriteSheet.getSpriteSize().y / 2));
